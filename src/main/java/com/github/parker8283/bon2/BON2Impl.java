@@ -10,8 +10,13 @@ import com.github.parker8283.bon2.srg.ClassCollection;
 import com.github.parker8283.bon2.srg.Repo;
 import com.github.parker8283.bon2.util.JarUtils;
 import com.github.parker8283.bon2.util.Remapper;
+import com.github.parker8283.bon2.cli.CLIErrorHandler;
+import com.github.parker8283.bon2.cli.CLIProgressListener;
 
 public class BON2Impl {
+    public static void main(String[] args) throws IOException {
+        remap(new File(args[0]), new File(args[1]), new MappingVersion(args[2], new File(args[3])), new CLIErrorHandler(), new CLIProgressListener());
+    }
 
     /**
      * Deobfuscates the inputJar to MCP names using the passed-in mappings.
